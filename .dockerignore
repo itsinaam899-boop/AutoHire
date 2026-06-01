@@ -1,0 +1,9 @@
+myenv
+__pycache__
+*.pyc
+.git
+.gitignore
+.env.local
+*.json
+*.md
+.DS_Store
