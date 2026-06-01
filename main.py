@@ -306,8 +306,8 @@ def run_job_scrape_in_background(job_id: int, search_keyword: str, location_id: 
 		result = run_scraper_sync(
 			search_keyword=search_keyword,
 			location_id=location_id,
-			limit=3,
-			headless=True,
+			limit=10,
+			headless=False,
 		)
 
 		job = db.query(Jobs).filter(Jobs.id == job_id).first()
