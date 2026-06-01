@@ -307,7 +307,7 @@ def run_job_scrape_in_background(job_id: int, search_keyword: str, location_id: 
 			search_keyword=search_keyword,
 			location_id=location_id,
 			limit=3,
-			headless=False,
+			headless=True,
 		)
 
 		job = db.query(Jobs).filter(Jobs.id == job_id).first()

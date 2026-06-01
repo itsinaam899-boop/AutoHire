@@ -298,7 +298,7 @@ async def run_scraper(
     limit,
     output_file=OUTPUT_FILE,
     parallel_workers=PARALLEL_WORKERS,
-    headless=False,
+    headless=True,
 ):
 
     async with async_playwright() as p:
@@ -423,7 +423,7 @@ def run_scraper_sync(
     limit,
     output_file=OUTPUT_FILE,
     parallel_workers=PARALLEL_WORKERS,
-    headless=False,
+    headless=True,
 ):
     return asyncio.run(
         run_scraper(
