@@ -409,7 +409,7 @@ async def run_scraper(
         finally:
             print("Closing browser...")
             try:
-                await asyncio.wait_for(browser.close())
+                await asyncio.wait_for(browser.close(),timeout=5)
                 print("Browser closed")
             except asyncio.TimeoutError:
                 pass
