@@ -4,7 +4,7 @@ import asyncio
 import urllib.parse
 from dotenv import load_dotenv
 
-os.environ.setdefault("PLAYWRIGHT_BROWSERS_PATH", "0")
+# os.environ.setdefault("PLAYWRIGHT_BROWSERS_PATH", "0")
 
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 if os.name == "nt" and hasattr(asyncio, "WindowsProactorEventLoopPolicy"):
@@ -19,7 +19,12 @@ load_dotenv()
 LINKEDIN_EMAIL = os.getenv("LINKEDIN_EMAIL")
 LINKEDIN_PASSWORD = os.getenv("LINKEDIN_PASSWORD")
 
-SESSION_FILE = "linkedin_session.json"
+import os
+
+os.makedirs("/data", exist_ok=True)
+SESSION_FILE = "/data/linkedin_session.json"
+
+# SESSION_FILE = "linkedin_session.json"
 OUTPUT_FILE = "linkedin_profiles.json"
 PARALLEL_WORKERS = 3
 
@@ -298,7 +303,7 @@ async def run_scraper(
     limit,
     output_file=OUTPUT_FILE,
     parallel_workers=PARALLEL_WORKERS,
-    headless=True,
+    headless=False,
 ):
 
     async with async_playwright() as p:
@@ -423,7 +428,7 @@ def run_scraper_sync(
     limit,
     output_file=OUTPUT_FILE,
     parallel_workers=PARALLEL_WORKERS,
-    headless=True,
+    headless=False,
 ):
     return asyncio.run(
         run_scraper(
