@@ -19,12 +19,7 @@ load_dotenv()
 LINKEDIN_EMAIL = os.getenv("LINKEDIN_EMAIL")
 LINKEDIN_PASSWORD = os.getenv("LINKEDIN_PASSWORD")
 
-
-import os 
-os.makedirs("/data", exist_ok=True) 
-SESSION_FILE = "/data/linkedin_session.json"
-
-# SESSION_FILE = "linkedin_session.json"
+SESSION_FILE = "linkedin_session.json"
 OUTPUT_FILE = "linkedin_profiles.json"
 PARALLEL_WORKERS = 3
 
